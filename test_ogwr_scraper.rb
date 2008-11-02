@@ -10,21 +10,32 @@ class TestOGWR < Test::Unit::TestCase
   include OGWR
   
   def setup
-    # # 10 = default.  
-    # @topend = 10
-    # @number_generator = NumberGenerator.new(@topend)
-    # @slot_machine = SlotMachine.new(@number_generator)
-    
-    # i really should mock this out and not hit the network... later
+    # i really should mock this out and not hit the network... will do that later
+    # flexmock(fetcher).should_receive(:open).with('http://www.officialworldgolfranking.com/rankings/default.sps').and_return{
+    #   StringIO.new('d=window.encodeURIComponent' * 500) #works on a string, ...returning something that has a read on it
+    # }
   end
   
   def test_scrape_top50
     fetcher = PageFetcher.new
-    players = fetcher.fetch('http://www.officialworldgolfranking.com/rankings/default.sps') 
+    page = 1
+    url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
+    players = fetcher.fetch(url, page) 
     assert_equal 50, players.length
     assert_equal 1, players[0].rank
     assert_equal "Tiger", players[0].fname
     assert_equal "Woods", players[0].lname
+  end
+  
+  def test_scrape_251to300
+    fetcher = PageFetcher.new
+    page = 6
+    url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
+    players = fetcher.fetch(url, page) 
+    assert_equal 50, players.length
+    assert_equal 251, players[0].rank
+    assert_equal "Ignacio", players[0].fname
+    assert_equal "Garrido", players[0].lname
   end
   
 end

@@ -15,10 +15,11 @@ module OGWR
   VERSION = '0.1.0'
 
   class PageFetcher
-    def fetch(ogwr_url)
+    def fetch(ogwr_url, page_num)
+      #page_num indicates range of 50n: page 1 >> 1-50, page 2 >> 51-100, page 3 >> 101-150...
       data = Hpricot(open(ogwr_url)).search("table:nth-child(5)")
       players = [] #init
-      start_rank = -1 #(there are 2 empty trs to start the world ranking) #instead of a counter, I should extract this from page
+      start_rank = -1 + 50*(page_num-1) #(there are 2 empty trs to start the world ranking) #instead of a counter, I should extract this from page
       (data/"td:nth-child(2)").each do |x|
         playa = OpenStruct.new
         playa.fname = x.search("a").inner_html.split(" ")[0]
@@ -28,6 +29,7 @@ module OGWR
         players << playa
         start_rank += 1
       end
+      #clean this line up:
       players.pop; players.reverse!; players.pop; players.pop; players.reverse! #remove one extra row at end, 2 extra at beginning
 
       players
