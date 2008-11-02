@@ -2,14 +2,13 @@
 # created by Mark Holton  (holtonma@gmail.com)
 # copy as much as you want to
 # 10-29-2008
-# purpose: scrape the official world golf ranking, and present it in a more usable form (TBD: Array of Hashes, maybe)
+# purpose: scrape the official world golf ranking, and present it in a more usable form (Array of ostruct's)
 # using Hpricot, open-uri
 
 require 'rubygems'
 require 'hpricot'
 require 'open-uri'
 require 'ostruct'
-#require 'mysql'
 
 module OGWR
   VERSION = '0.1.0'

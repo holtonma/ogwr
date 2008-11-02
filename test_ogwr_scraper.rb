@@ -11,8 +11,10 @@ class TestOGWR < Test::Unit::TestCase
   
   def setup
     # i really should mock this out and not hit the network... will do that later
-    # flexmock(fetcher).should_receive(:open).with('http://www.officialworldgolfranking.com/rankings/default.sps').and_return{
-    #   StringIO.new('d=window.encodeURIComponent' * 500) #works on a string, ...returning something that has a read on it
+    # page = 1
+    # url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
+    # flexmock(fetcher).should_receive(:open).with(url, page).and_return{
+    #   File.open(sample.html, 'r') 
     # }
   end
   
