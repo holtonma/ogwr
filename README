@@ -1,0 +1,120 @@
+# created by Mark Holton  (holtonma@gmail.com)
+# copy as much as you want to
+# 10-29-2008
+# purpose: scrape the official world golf ranking, and present it in a more usable form (TBD: Array of Hashes, maybe)
+# using Hpricot, open-uri (later might switch to Nokogiri instead of Hpricot)
+
+...Official Golf World Ranking OGWR... code that grabs the official golf world rankings... use the data as you wish in your own application... released as open source...
+
+code: http://github.com/holtonma/ogwr/tree/master/ogwr_scraper.rb
+test: http://github.com/holtonma/ogwr/tree/master/test_ogwr_scraper.rb
+
+enables anyone to take this site...
+http://www.officialworldgolfranking.com/rankings/default.sps
+
+grab all the data, and do with it what you wish (store to a database each week, hold in your database to related to players on your website, etc).  Some boogs, but it's decent for a start:
+
+Tiger Woods 1
+Phil Mickelson 2
+Sergio Garcia 3
+Vijay Singh 4
+Padraig Harrington 5
+Robert Karlsson 6
+Camilo Villegas 7
+Anthony Kim 8
+Ernie Els 9
+Henrik Stenson 10
+Lee Westwood 11
+Jim Furyk 12
+Steve Stricker 13
+Stewart Cink 14
+K.J. Choi 15
+Justin Rose 16
+Adam Scott 17
+Geoff Ogilvy 18
+Kenny Perry 19
+Miguel A 20
+Mike Weir 21
+Trevor Immelman 22
+Justin Leonard 23
+Ian Poulter 24
+Ben Curtis 25
+Rory Sabbatini 26
+Luke Donald 27
+Aaron Baddeley 28
+Stephen Ames 29
+Robert Allenby 30
+Andres Romero 31
+Graeme McDowell 32
+Stuart Appleby 33
+Ross Fisher 34
+Zach Johnson 35
+Angel Cabrera 36
+Martin Kaymer 37
+Hunter Mahan 38
+Boo Weekley 39
+Tim Clark 40
+Paul Casey 41
+Soren Hansen 42
+Shingo Katayama 43
+Woody Austin 44
+Kevin Sutherland 45
+Sean O'Hair 46
+Retief Goosen 47
+Dudley Hart 48
+Carl Pettersson 49
+Fredrik Jacobson 50
+...
+...
+Ignacio Garrido 251
+Rich Beem 252
+Tim Wilkinson 253
+Toyokazu Fujishima 254
+Chris Wood 255
+Roland Thatcher 256
+Makoto Inoue 257
+Jason Gore 258
+D.A. Points 259
+Jean-F Lucquin 260
+David Gleeson 261
+Brendon Todd 262
+David Frost 263
+Colt Knost 264
+Charles Warren 265
+Marc Leishman 266
+Jesper Parnevik 267
+Stephen Gallacher 268
+Juvic Pagunsan 269
+Jeppe Huldahl 270
+Casey Wittenberg 271
+Kris Blanks 272
+Paul Waring 273
+Richard Johnson 274
+Brian Bateman 275
+Tim Petrovic 276
+Michael Jonzon 277
+Kenichi Kuboya 278
+Keiichiro Fukabori 279
+Koumei Oda 280
+Daniel Vancsik 281
+Jon Mills 282
+David Dixon 283
+John Ellis 284
+Maarten Lafeber 285
+Fredrik Andersson 286
+Klas Eriksson 287
+Chapchai Nirat 288
+Mark Hensby 289
+Alejandro Canizares 290
+Yusaku Miyazato 291
+David Mathis 292
+Shane Bertsch 293
+Steve Allan 294
+Antti Ahokas 295
+S.S.P. Chowrasia 296
+Daniel Summerhays 297
+Martin Erlandsson 298
+Alessandro Tadini 299
+Jeff Klauk 300
+
+
