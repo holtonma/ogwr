@@ -21,7 +21,7 @@ module OGWR
       start_rank = -1 + 50*(page_num-1) #(there are 2 empty trs to start the world ranking) #instead of a counter, I should extract this from page
       (data/"td:nth-child(2)").each do |x|
         playa = OpenStruct.new
-        playa.fname = x.search("a").inner_html.split(" ")[0]
+        playa.fname = x.search("a").inner_html.split(" ").first
         playa.lname = x.search("a").inner_html.split(" ")[1]
         playa.rank = start_rank
         puts "#{playa.fname} #{playa.lname} #{playa.rank}"
