@@ -54,13 +54,12 @@ class TestOGWR < Test::Unit::TestCase
     #page = 6
     (1..6).each do |page|
       url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
-      data = fetcher.fetch_via_noko(url, page)
-      players = fetcher.friendly_structure(data)
-      #puts "players.length: #{players.length}"
-      assert_equal 51, players.length
+      players = fetcher.friendly_structure(fetcher.fetch_via_noko(url, page))
       players.each do |p|
         puts "#{p.rank} :: #{p.fname} #{p.lname} #{p.avg_pts} #{p.tot_pts}"
       end
+      assert_equal 50, players.length
+      
     end
     
   end

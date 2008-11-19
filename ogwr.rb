@@ -67,8 +67,7 @@ module OGWR
       players = []
       player_data.each do |p|
         #puts "p.class: #{p.class}"
-        #puts "p.class = nil:NilClass #{(p.class == nil:NilClass)}"
-        next unless p.length > 0
+        next unless (p.length > 0 && p[0] != "Rank")
         playa = OpenStruct.new
         # puts "element: #{p}"
         # puts "name: #{p[1]}"
