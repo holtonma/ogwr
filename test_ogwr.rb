@@ -19,7 +19,7 @@ class TestOGWR < Test::Unit::TestCase
   end
   
   def test_scrape_top50
-    fetcher = PageFetcher.new
+    fetcher = Fetcher.new
     page = 1
     url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
     players = fetcher.fetch(url, page) 
@@ -30,14 +30,22 @@ class TestOGWR < Test::Unit::TestCase
   end
   
   def test_scrape_251to300
-    fetcher = PageFetcher.new
+    fetcher = Fetcher.new
     page = 6
     url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
     players = fetcher.fetch(url, page) 
     assert_equal 50, players.length
     assert_equal 251, players[0].rank
-    assert_equal "Ignacio", players[0].fname
-    assert_equal "Garrido", players[0].lname
+    assert_equal "Marc", players[0].fname
+    assert_equal "Warren", players[0].lname
   end
+  
+  def test_via_noko
+    fetcher = Fetcher.new
+    page = 6
+    url = "http://www.officialworldgolfranking.com/rankings/default.sps?region=world&PageCount=#{page}"
+    puts fetcher.fetch_via_noko(url, page) 
+  end
+  
   
 end
