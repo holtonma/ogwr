@@ -54,13 +54,45 @@ module OGWR
             player_data << cells
             cells = []
           end
-          puts "about to export player_data: "
+          #puts "about to export player_data: "
         end
         #player_data
       end
       
       player_data
     end
+    
+    def friendly_structure player_data
+      # take player_data and turn it into array of Ostructs
+      players = []
+      player_data.each do |p|
+        #puts "p.class: #{p.class}"
+        #puts "p.class = nil:NilClass #{(p.class == nil:NilClass)}"
+        next unless p.length > 0
+        playa = OpenStruct.new
+        # puts "element: #{p}"
+        # puts "name: #{p[1]}"
+        playa.rank = p[0]
+        playa.fname = p[1].split(" ")[0]
+        # puts "first name: #{p[1].split(" ")[0]}"
+        # puts "last name: #{p[1].split(" ")[1]}" 
+        playa.lname = p[1].split(" ")[1]
+        # puts "Pts Avg: #{p[2]}"
+        playa.avg_pts = p[2]
+        # puts "tot pts: #{p[3]}"
+        playa.tot_pts = p[3]
+        # puts "num events: #{p[4]}"
+        playa.num_events = p[4]
+        # puts "pts lost 2006-07: #{p[5]}"
+        playa.pts_lost_last_year = p[5]
+        # puts "pts gained 2008: #{p[6]}"
+        playa.pts_gained_this_year = p[6]
+        players << playa
+      end
+      
+      players
+    end
+    
     
   end
   
